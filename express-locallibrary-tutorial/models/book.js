@@ -9,6 +9,7 @@ const BookSchema = new Schema({
   isbn: { type: String, required: true },
   genre: [{ type: Schema.Types.ObjectId, ref: "Genre" }],
 });
+// referecnes the genre and author schemas so Schema.Types.Object.ID with a reference to category 
 
 // Virtual for book's URL
 BookSchema.virtual("url").get(function () {
