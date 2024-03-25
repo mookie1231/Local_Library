@@ -42,8 +42,7 @@ exports.book_list = asyncHandler(async (req, res, next) => {
 });
 
 
-// Display detail page for a specific book.
-// Display detail page for a specific book.
+
 exports.book_detail = asyncHandler(async (req, res, next) => {
   // Get details of books, book instances for specific book
   const [book, bookInstances] = await Promise.all([
