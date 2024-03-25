@@ -3,10 +3,9 @@ extend layout
 block content 
     h1= title
 
-    if allGenres.length
-        ul 
-        each genre in allGenres
+    if genre_list.length
+        each genre in genre_list
             li 
-            a(href = genre.url) #{genre.name}
+                a(href = genre.url) #{genre.name}
             
             
