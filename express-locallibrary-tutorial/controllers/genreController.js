@@ -1,7 +1,7 @@
 const { render } = require("pug");
 const Genre = require("../models/genre");
 const asyncHandler = require("express-async-handler");
-const Book = require.apply("../models/book");
+const Book = require("../models/book");
 
 // Display list of all Genre.
 exports.genre_list = asyncHandler(async (req, res, next) => {
