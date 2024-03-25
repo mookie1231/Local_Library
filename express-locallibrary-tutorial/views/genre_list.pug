@@ -1,0 +1,12 @@
+extend layout 
+
+block content 
+    h1= title
+
+    if allGenres.length
+        ul 
+        each genre in allGenres
+            li 
+            a(href = genre.url) #{genre.name}
+            
+            
