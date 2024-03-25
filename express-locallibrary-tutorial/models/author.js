@@ -28,8 +28,12 @@ AuthorSchema.virtual("url").get(function () {
   return `/catalog/author/${this._id}`;
 });
 
-AuthorSchema.virtual("Lifespan").get(function () {
-  return DateTime.fromJSDate(this.date_of_birth - this.date_of_death).toLocaleString(DateTime.DATE_MED);
+AuthorSchema.virtual("lifespan").get(function () {
+
+  const hello = DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
+  const bye = DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+  const combo = `${hello} - ${bye}`
+  return combo
 });
 
 // Export model
