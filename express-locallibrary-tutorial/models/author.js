@@ -30,9 +30,25 @@ AuthorSchema.virtual("url").get(function () {
 
 AuthorSchema.virtual("lifespan").get(function () {
 
-  const hello = DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
-  const bye = DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
-  const combo = `${hello} - ${bye}`
+  let hello = DateTime.fromJSDate(this.date_of_birth).toLocaleString(DateTime.DATE_MED)
+  let bye = DateTime.fromJSDate(this.date_of_death).toLocaleString(DateTime.DATE_MED)
+  
+  if (bye == "Invalid DateTime"){
+    bye = "Present"
+  }
+
+  if (hello == "Invalid DateTime"){
+    hello = "Unknown"
+  }
+
+  let combo = `${hello} - ${bye}`
+
+  if( hello == "Unknown" && bye == "Present") {
+    combo = "No Records Found"
+  }
+
+  
+
   return combo
 });
 
